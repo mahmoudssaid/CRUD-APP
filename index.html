@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+
+<body>
+    <section class="py-5">
+        <div class="container">
+            <div class="form-group text-primary">
+                <label for="proName">product Name</label>
+                <input class="form-control" id="proName">
+            </div>
+            <div class="form-group text-primary">
+                <label for="proPrice text-primary">product Price</label>
+                <input class="form-control" id="proPrice">
+            </div>
+            <div class="form-group text-primary">
+                <label for="proCat">product Category</label>
+                <input class="form-control" id="proCat">
+            </div>
+            <div class="form-group text-primary">
+                <label for="proDes">product Description</label>
+                <textarea class="form-control" id="proDes"></textarea>
+            </div>
+            <button class="btn btn-primary" onclick="addprod()">Add Product</button>
+        </div>
+    </section>
+
+
+    <section class="py-5">
+        <div class="container">
+            <div class="form-group text-primary m-auto col-6">
+                <input class="form-control" placeholder="search product">
+            </div>
+            <table class="table my-5 text-center">
+                <thead class="text-primary">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                </thead>
+                <tbody id="tboody">
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+    <script src="js/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/mine.js"></script>
+</body>
+</html>
