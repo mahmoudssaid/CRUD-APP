@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
@@ -8,56 +9,90 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-
 <body>
-    <section class="py-5">
+    <!-- ========================== Add product section  =================================-->
+    <section class="product-section py-5">
         <div class="container">
-            <div class="form-group text-primary">
-                <label for="proName">product Name</label>
-                <input class="form-control" id="proName">
+            <div class="product">
+                <h1 class="text-center text-primary">CRUD APP</h1>
+                <div class="form-group">
+                    <label for="productName">Product name</label>
+                    <input class="form-control" id="productName" onkeyup="keyup()">
+                    <div class="alert alert-danger" role="alert" id="alertName">
+                        please check your first letter must be A-Z
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="productPrice">Product price</label>
+                    <input class="form-control " id="productPrice" onkeyup="keyup()">
+                    <div class="alert alert-danger" role="alert" id="alertPrice">
+                        please check your Numbers
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="productCategory">Product category</label>
+                    <input class="form-control" id="productCategory">
+                </div>
+                <div class="form-group">
+                    <label for="productDesc">Product description</label>
+                    <textarea class="form-control" id="productDesc"></textarea>
+                </div>
+                <div id="divBtn">
+                    <button class="btn btn-primary btn-lg " onclick="addProduct() ">Add Product</button>
+                    <button id="saveEdit" class="btn btn-warning btn-lg">Save Edit</button>
+                </div>
             </div>
-            <div class="form-group text-primary">
-                <label for="proPrice text-primary">product Price</label>
-                <input class="form-control" id="proPrice">
-            </div>
-            <div class="form-group text-primary">
-                <label for="proCat">product Category</label>
-                <input class="form-control" id="proCat">
-            </div>
-            <div class="form-group text-primary">
-                <label for="proDes">product Description</label>
-                <textarea class="form-control" id="proDes"></textarea>
-            </div>
-            <button class="btn btn-primary" onclick="addprod()">Add Product</button>
         </div>
     </section>
-
-
-    <section class="py-5">
-        <div class="container">
-            <div class="form-group text-primary m-auto col-6">
-                <input class="form-control" placeholder="search product">
+    <!-- ========================== Search product section  =================================-->
+    <section>
+        <div class="container ">
+            <div class="form-group ">
+                <input class="form-control col-8 m-auto" id="Search" onkeyup="searchProd(this.value)" placeholder="Search Product">
+                <div class="my-5 ">
+                    <table class="table table-bordered text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col "></th>
+                                <th scope="col ">Name</th>
+                                <th scope="col ">Price</th>
+                                <th scope="col ">Category</th>
+                                <th scope="col-2 ">Description</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productTable"></tbody>
+                    </table>
+                </div>
             </div>
-            <table class="table my-5 text-center">
-                <thead class="text-primary">
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Description</th>
-                    </tr>
-                </thead>
-                <tbody id="tboody">
-
-                </tbody>
-            </table>
         </div>
     </section>
+    <!-- ========================== Modal delete section  =================================-->
+    <div class="modal" tabindex="-1" role="dialog" id="DeleteModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete Item</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                </div>
+                <div class="modal-body">
+                    <p id="OpShow"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" id="deleteMine" data-dismiss="modal">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-
-    <script src="js/jquery-3.5.1.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/mine.js"></script>
+    <script src="js/jquery-3.5.1.slim.min.js "></script>
+    <script src="js/popper.min.js "></script>
+    <script src="js/bootstrap.min.js "></script>
+    <script src="js/mine.js "></script>
 </body>
+
 </html>

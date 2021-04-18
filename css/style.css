@@ -1,0 +1,23 @@
+.alert {
+    margin-top: 15px;
+    display: none;
+}
+
+#saveEdit {
+    display: none;
+}
+
+.labelShowOP {
+    display: block;
+}
+
+.spanNamOP {
+    font-weight: 900;
+    color: #c82333;
+}
+
+.noFound {
+    color: tomato;
+    font-weight: 800;
+    font-style: italic;
+}
