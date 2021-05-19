@@ -21,3 +21,9 @@
     font-weight: 800;
     font-style: italic;
 }
+.table-bordered .Name-p {
+    text-transform: capitalize;
+}
+.table-bordered .Name-p span{
+    background-color: yellow;
+}

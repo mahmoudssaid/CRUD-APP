@@ -22,7 +22,7 @@ function addProduct() {
         if (regXName.test(PName)) {
             if (regXPrice.test(PPrice)) {
                 var product = {
-                    name: PName,
+                    name: PName.toLowerCase(),
                     price: PPrice,
                     category: PCat,
                     description: PDesc
@@ -57,13 +57,13 @@ function display() {
     var trs = ``;
     for (i = 0; i < allProducts.length; i++) {
         trs += `<tr>
-        <th scope="col "> ${i+1} </th>
-        <th scope="col "> ${allProducts[i].name} </th>
-        <th scope="col "> ${allProducts[i].price} </th>
-        <th scope="col "> ${allProducts[i].category} </th>
+        <th scope="col"> ${i+1} </th>
+        <th scope="col" class="Name-p"> ${allProducts[i].name} </th>
+        <th scope="col"> ${allProducts[i].price} </th>
+        <th scope="col"> ${allProducts[i].category} </th>
         <th scope="col-2">${allProducts[i].description} </th>
-        <th scope="col "> <button class="btn btn-outline-warning" onclick="edit(${i})">Edit</button></th>
-        <th scope="col "> <button class="btn btn-outline-danger" onclick="modalData(${i})" data-toggle="modal" data-target="#DeleteModal">Delete</button></th>
+        <th scope="col"> <button class="btn btn-outline-warning" onclick="edit(${i})">Edit</button></th>
+        <th scope="col"> <button class="btn btn-outline-danger" onclick="modalData(${i})" data-toggle="modal" data-target="#DeleteModal">Delete</button></th>
     </tr>`
     }
     document.getElementById("productTable").innerHTML = trs;
@@ -110,10 +110,10 @@ function searchProd(searchV) {
     } else {
         var nothing = ``;
         nothing += `
-                        <tr>
-                          <td> ${"1"}</td>
-                          <td colspan="6" class="noFound"> ${"No Products Found"}</td>
-                      </tr>`;
+            <tr>
+                <td> ${"1"}</td>
+                <td colspan="6" class="noFound"> ${"No Products Found"}</td>
+            </tr>`;
         document.getElementById("productTable").innerHTML = nothing;
     }
 
@@ -121,18 +121,18 @@ function searchProd(searchV) {
         var trs = ``;
         for (i = 0; i < newArray.length; i++) {
             trs += `<tr>
-                    <th scope="col ">` + (Number(newArray[i].searchIndex) + 1) +
+                    <th scope="col">` + (Number(newArray[i].searchIndex) + 1) +
                 ` </th>
-                    <th scope="col ">` + newArray[i].name +
+                    <th scope="col" class="Name-p">` + newArray[i].name.replace(searchV,`<span>${searchV}</span>`) +
                 `</th>
-                    <th scope="col ">` + newArray[i].price +
+                    <th scope="col">` + newArray[i].price +
                 `</th>
-                    <th scope="col ">` + newArray[i].category +
+                    <th scope="col">` + newArray[i].category +
                 `</th>
                     <th scope="col-2 ">` + newArray[i].description +
                 `</th>
-                    <th scope="col "> <button class="btn btn-outline-warning" onclick="edit(${newArray[i].searchIndex})">Edit</button></th>
-                    <th scope="col "> <button class="btn btn-outline-danger" onclick="modalData(${newArray[i].searchIndex})" data-toggle="modal" data-target="#DeleteModal">Delete</button></th> 
+                    <th scope="col"> <button class="btn btn-outline-warning" onclick="edit(${newArray[i].searchIndex})">Edit</button></th>
+                    <th scope="col"> <button class="btn btn-outline-danger" onclick="modalData(${newArray[i].searchIndex})" data-toggle="modal" data-target="#DeleteModal">Delete</button></th> 
                 </tr>`;
         }
         document.getElementById("productTable").innerHTML = trs;
